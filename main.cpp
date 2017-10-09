@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
         message mess( entree_clavier );
         afficheur->envoyerMessage( mess );
 
-        Sleep(5000);
+        Sleep(4000);
     }
 
 
