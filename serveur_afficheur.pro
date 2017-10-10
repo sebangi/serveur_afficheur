@@ -12,7 +12,8 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     message.cpp \
-    afficheurinterface.cpp
+    afficheurinterface.cpp \
+    serveur_ordre.cpp
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
@@ -27,4 +28,5 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 HEADERS += \
     message.h \
-    afficheurinterface.h
+    afficheurinterface.h \
+    server_ordre.h
