@@ -1,5 +1,6 @@
 QT += core
 QT += serialport
+QT += network
 QT -= gui
 
 CONFIG += c++11
@@ -29,4 +30,4 @@ DEFINES += QT_DEPRECATED_WARNINGS
 HEADERS += \
     message.h \
     afficheurinterface.h \
-    server_ordre.h
+    serveur_ordre.h

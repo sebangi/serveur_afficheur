@@ -10,7 +10,7 @@
 
 #include "message.h"
 #include "afficheurinterface.h"
-#include "server_ordre.h"
+#include "serveur_ordre.h"
 
 using namespace std;
 
@@ -19,6 +19,8 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
 
     ServeurOrdre serveur;
+
+    /*
     string entree_clavier;
     AfficheurInterface* afficheur = AfficheurInterface::Instance();
 
@@ -30,7 +32,7 @@ int main(int argc, char *argv[])
 
         Sleep(4000);
     }
-
+*/
 
     return a.exec();
 }
