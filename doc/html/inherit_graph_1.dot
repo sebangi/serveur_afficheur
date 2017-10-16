@@ -3,5 +3,5 @@ digraph "Graphe hiérarchique des classes"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="message",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmessage.html",tooltip="Déclaration de la classe message décrivant un message à envoyer à l&#39;afficheur. "];
+  Node0 [label="Message",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_message.html",tooltip="Classe décrivant un message à envoyer à l&#39;afficheur. "];
 }

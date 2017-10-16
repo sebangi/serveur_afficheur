@@ -2,7 +2,7 @@
 #define AFFICHEURINTERFACE_H
 
 /**
- * \file afficheurinterface.h
+ * \file afficheur_interface.h
  * \brief Fichier de déclaration de la classe AfficheurInterface.
  * \author Sébastien Angibaud
  */

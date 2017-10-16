@@ -1,0 +1,13 @@
+digraph "AfficheurInterface::envoyerMessage"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node4 [label="AfficheurInterface\l::envoyerMessage",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="AfficheurInterface\l::connexionEtablie",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_afficheur_interface.html#a15a5bba3bcc7b0af86eac6c55fb32bc5",tooltip="Teste si la connexion est correctement établie. "];
+  Node4 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Message::texte",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_message.html#a6019f33819c38337f2fc759cb399e745",tooltip="Accesseur du texte à envoyer. "];
+  Node4 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="AfficheurInterface\l::calculerChecksum",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_afficheur_interface.html#adeab11702138da5367875cbdf730c463",tooltip="Calcul du checksum d&#39;une trame donnée. Le checksum est un simple xor. "];
+}

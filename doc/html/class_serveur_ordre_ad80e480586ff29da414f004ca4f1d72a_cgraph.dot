@@ -1,0 +1,14 @@
+digraph "ServeurOrdre::connexionClient"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node7 [label="ServeurOrdre::connexionClient",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="ServeurOrdre::deconnexion\lClient",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_serveur_ordre.html#a5cba056649c622f09005c27013cc154f",tooltip="Méthode appelée lors d&#39;une déconnexion du client. "];
+  Node8 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="ServeurOrdre::lireTexte",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_serveur_ordre.html#aeed132bef46a63a47474216aa0e64a76",tooltip="Méthode appelée lors de la réception d&#39;un texte. "];
+  Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="ServeurOrdre::envoiTexte",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_serveur_ordre.html#a2157f6ef03ff3ef66be53654e179d193",tooltip="Méthode envoyant un texte donné au client. "];
+  Node7 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

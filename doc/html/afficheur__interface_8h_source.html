@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ServeurAfficheur:  Fichier source de afficheur_interface.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">ServeurAfficheur
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">afficheur_interface.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="afficheur__interface_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef AFFICHEURINTERFACE_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define AFFICHEURINTERFACE_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QtSerialPort/QSerialPort&gt;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span><a class="code" href="class_message.html">Message</a>;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_afficheur_interface.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_afficheur_interface.html">AfficheurInterface</a></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="class_afficheur_interface.html#a9078a8cb968e65d3d91e1bf2e963df2c">AfficheurInterface</a>();</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="class_afficheur_interface.html#ad59eadc5e894e4394cc04325b13a259f">~AfficheurInterface</a>();</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_afficheur_interface.html">AfficheurInterface</a>* <a class="code" href="class_afficheur_interface.html#a811eacddf7d916d228711f2f45598a03">instance</a>();</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_afficheur_interface.html#a7d48b27e86d6b3437268d82283d02d26">envoyerMessage</a>(<span class="keyword">const</span> <a class="code" href="class_message.html">Message</a>&amp; m);</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_afficheur_interface.html#adeab11702138da5367875cbdf730c463">calculerChecksum</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* trame) <span class="keyword">const</span>;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_afficheur_interface.html#a15a5bba3bcc7b0af86eac6c55fb32bc5">connexionEtablie</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_afficheur_interface.html#a2fb10c18bc9f9e6ed163b72baf4f4ca3">   35</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="class_afficheur_interface.html">AfficheurInterface</a>* <a class="code" href="class_afficheur_interface.html#a2fb10c18bc9f9e6ed163b72baf4f4ca3">m_instance</a>;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_afficheur_interface.html#ae9e9bbb4b96e53cf3ff81a4071101b25">   38</a></span>&#160;        QSerialPort <a class="code" href="class_afficheur_interface.html#ae9e9bbb4b96e53cf3ff81a4071101b25">m_portSerie</a>;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif // AFFICHEURINTERFACE_H</span></div><div class="ttc" id="class_afficheur_interface_html_a15a5bba3bcc7b0af86eac6c55fb32bc5"><div class="ttname"><a href="class_afficheur_interface.html#a15a5bba3bcc7b0af86eac6c55fb32bc5">AfficheurInterface::connexionEtablie</a></div><div class="ttdeci">bool connexionEtablie() const</div><div class="ttdoc">Teste si la connexion est correctement établie. </div><div class="ttdef"><b>Definition:</b> <a href="afficheur__interface_8cpp_source.html#l00060">afficheur_interface.cpp:60</a></div></div>
+<div class="ttc" id="class_afficheur_interface_html_a7d48b27e86d6b3437268d82283d02d26"><div class="ttname"><a href="class_afficheur_interface.html#a7d48b27e86d6b3437268d82283d02d26">AfficheurInterface::envoyerMessage</a></div><div class="ttdeci">void envoyerMessage(const Message &amp;m)</div><div class="ttdoc">Envoie un message à l&amp;#39;afficheur. </div><div class="ttdef"><b>Definition:</b> <a href="afficheur__interface_8cpp_source.html#l00069">afficheur_interface.cpp:69</a></div></div>
+<div class="ttc" id="class_afficheur_interface_html_a2fb10c18bc9f9e6ed163b72baf4f4ca3"><div class="ttname"><a href="class_afficheur_interface.html#a2fb10c18bc9f9e6ed163b72baf4f4ca3">AfficheurInterface::m_instance</a></div><div class="ttdeci">static AfficheurInterface * m_instance</div><div class="ttdoc">Pointeur sur l&amp;#39;instance singleton AfficheurInterface. </div><div class="ttdef"><b>Definition:</b> <a href="afficheur__interface_8h_source.html#l00035">afficheur_interface.h:35</a></div></div>
+<div class="ttc" id="class_afficheur_interface_html_ae9e9bbb4b96e53cf3ff81a4071101b25"><div class="ttname"><a href="class_afficheur_interface.html#ae9e9bbb4b96e53cf3ff81a4071101b25">AfficheurInterface::m_portSerie</a></div><div class="ttdeci">QSerialPort m_portSerie</div><div class="ttdoc">Le port série. </div><div class="ttdef"><b>Definition:</b> <a href="afficheur__interface_8h_source.html#l00038">afficheur_interface.h:38</a></div></div>
+<div class="ttc" id="class_afficheur_interface_html_a811eacddf7d916d228711f2f45598a03"><div class="ttname"><a href="class_afficheur_interface.html#a811eacddf7d916d228711f2f45598a03">AfficheurInterface::instance</a></div><div class="ttdeci">static AfficheurInterface * instance()</div><div class="ttdoc">Accesseur de l&amp;#39;instance singleton AfficheurInterface. </div><div class="ttdef"><b>Definition:</b> <a href="afficheur__interface_8cpp_source.html#l00048">afficheur_interface.cpp:48</a></div></div>
+<div class="ttc" id="class_afficheur_interface_html_adeab11702138da5367875cbdf730c463"><div class="ttname"><a href="class_afficheur_interface.html#adeab11702138da5367875cbdf730c463">AfficheurInterface::calculerChecksum</a></div><div class="ttdeci">int calculerChecksum(const char *trame) const</div><div class="ttdoc">Calcul du checksum d&amp;#39;une trame donnée. Le checksum est un simple xor. </div><div class="ttdef"><b>Definition:</b> <a href="afficheur__interface_8cpp_source.html#l00108">afficheur_interface.cpp:108</a></div></div>
+<div class="ttc" id="class_afficheur_interface_html"><div class="ttname"><a href="class_afficheur_interface.html">AfficheurInterface</a></div><div class="ttdoc">Classe permettant de faire l&amp;#39;interface avec un afficheur. </div><div class="ttdef"><b>Definition:</b> <a href="afficheur__interface_8h_source.html#l00019">afficheur_interface.h:19</a></div></div>
+<div class="ttc" id="class_message_html"><div class="ttname"><a href="class_message.html">Message</a></div><div class="ttdoc">Classe décrivant un message à envoyer à l&amp;#39;afficheur. </div><div class="ttdef"><b>Definition:</b> <a href="message_8h_source.html#l00017">message.h:17</a></div></div>
+<div class="ttc" id="class_afficheur_interface_html_ad59eadc5e894e4394cc04325b13a259f"><div class="ttname"><a href="class_afficheur_interface.html#ad59eadc5e894e4394cc04325b13a259f">AfficheurInterface::~AfficheurInterface</a></div><div class="ttdeci">~AfficheurInterface()</div><div class="ttdoc">Destructeur de la classe AfficheurInterface. </div><div class="ttdef"><b>Definition:</b> <a href="afficheur__interface_8cpp_source.html#l00038">afficheur_interface.cpp:38</a></div></div>
+<div class="ttc" id="class_afficheur_interface_html_a9078a8cb968e65d3d91e1bf2e963df2c"><div class="ttname"><a href="class_afficheur_interface.html#a9078a8cb968e65d3d91e1bf2e963df2c">AfficheurInterface::AfficheurInterface</a></div><div class="ttdeci">AfficheurInterface()</div><div class="ttdoc">Constructeur de la classe AfficheurInterface. </div><div class="ttdef"><b>Definition:</b> <a href="afficheur__interface_8cpp_source.html#l00022">afficheur_interface.cpp:22</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi 16 Octobre 2017 11:11:45 pour ServeurAfficheur par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

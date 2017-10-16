@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['sessionouverte',['sessionOuverte',['../class_serveur_ordre.html#a763cb52d1226146e81815070bdbdd2f7',1,'ServeurOrdre']]]
+  ['affichererreur',['afficherErreur',['../class_serveur_ordre.html#aea381f4fe83566d08721639cd6feb27f',1,'ServeurOrdre']]],
+  ['afficheurinterface',['AfficheurInterface',['../class_afficheur_interface.html#a9078a8cb968e65d3d91e1bf2e963df2c',1,'AfficheurInterface']]]
 ];
