@@ -25,7 +25,8 @@ ServeurOrdre::ServeurOrdre()
 }
 
 //###############################################################################################################
-// Méthode appelée lors de l'ouverture de session
+/** \brief Méthode appelée lors de l'ouverture de session.
+*/
 void ServeurOrdre::sessionOuverte()
 {
     std::cout << "ServeurOrdre::sessionOuverte()" << std::endl;
