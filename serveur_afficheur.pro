@@ -12,9 +12,11 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    message.cpp \
     serveur_ordre.cpp \
-    afficheur_interface.cpp
+    afficheur_interface.cpp \
+    gestionnaire_ordre.cpp \
+    message_afficheur.cpp \
+    message_client.cpp
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
@@ -28,6 +30,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 HEADERS += \
-    message.h \
     serveur_ordre.h \
-    afficheur_interface.h
+    afficheur_interface.h \
+    gestionnaire_ordre.h \
+    message_afficheur.h \
+    message_client.h

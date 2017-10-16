@@ -9,7 +9,7 @@
 
 #include <QtSerialPort/QSerialPort>
 
-class Message;
+class MessageAfficheur;
 
 /**
  * \class AfficheurInterface
@@ -24,7 +24,7 @@ class AfficheurInterface
 
     public:
         static AfficheurInterface* instance();
-        void envoyerMessage(const Message& m);
+        void envoyerMessage(const MessageAfficheur& m);
 
     private:
         int calculerChecksum(const char* trame) const;

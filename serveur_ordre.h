@@ -10,6 +10,8 @@
 #include <QObject>
 #include <QTcpSocket>
 
+#include "gestionnaire_ordre.h"
+
 class QTcpServer;
 class QTcpSocket;
 class QNetworkSession;
@@ -33,7 +35,7 @@ private slots:
     void afficherErreur(QAbstractSocket::SocketError socketError);
 
 private:
-    void envoiTexte( const std::string& s);
+    void envoiTexte( const QString& s);
 
 private:
     /** \brief Un pointeur sur le socket général d'écoute. */
@@ -47,6 +49,9 @@ private:
 
     /** \brief Le nombre d'octets lues. */
     quint16 m_nbOctetsLus;
+
+    /** \brief Le gestionnaire d'ordre. */
+    GestionnaireOrdre m_gestionnaireOrdre;
 };
 
 #endif

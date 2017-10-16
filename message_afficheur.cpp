@@ -1,23 +1,23 @@
 /** \file message.cpp
- * \brief Fichier d'implémentation de la classe Message.
+ * \brief Fichier d'implémentation de la classe MessageAfficheur.
  * \author Sébastien Angibaud
  */
 
-#include "message.h"
+#include "message_afficheur.h"
 
 /** --------------------------------------------------------------------------------------
- * \brief Constructeur par défaut de la classe Message.
+ * \brief Constructeur par défaut de la classe MessageAfficheur.
  */
-Message::Message()
+MessageAfficheur::MessageAfficheur()
 {
 
 }
 
 /** --------------------------------------------------------------------------------------
- * \brief Constructeur de la classe message.
- * \param texte Un référence constante sur le texte du message à envoyer.
+ * \brief Constructeur de la classe MessageAfficheur.
+ * \param texte Une référence constante sur le texte du message à envoyer.
  */
-Message::Message(const std::string & texte)
+MessageAfficheur::MessageAfficheur(const QString & texte)
     : m_texte(texte)
 {
 
@@ -27,7 +27,7 @@ Message::Message(const std::string & texte)
  * \brief Accesseur du texte à envoyer.
  * \return Le texte à envoyer.
  */
-std::string Message::texte() const
+QString MessageAfficheur::texte() const
 {
     return m_texte;
 }

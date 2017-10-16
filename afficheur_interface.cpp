@@ -4,7 +4,7 @@
  */
 
 #include "afficheur_interface.h"
-#include "message.h"
+#include "message_afficheur.h"
 
 #include <iostream>
 #include <sstream>
@@ -66,13 +66,13 @@ bool AfficheurInterface::connexionEtablie() const
  * \brief Envoie un message à l'afficheur.
  * \param m Une référence constance sur le message à envoyer.
  */
-void AfficheurInterface::envoyerMessage( const Message & m)
+void AfficheurInterface::envoyerMessage( const MessageAfficheur & m)
 {
     if ( connexionEtablie() )
     {
         std::string startOfTrame = "<ID01>";
         std::string startOfMessage = "<L1><PA><FE><MA><WC><FE>";
-        std::string mess = startOfMessage + m.texte();
+        std::string mess = startOfMessage + m.texte().toStdString();
 
         int checkSum = calculerChecksum(mess.c_str());
         std::string endOfTrame = "<E>";

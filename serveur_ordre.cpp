@@ -92,8 +92,10 @@ void ServeurOrdre::lireTexte()
     std::cout << texte.toStdString() << std::endl;
     m_nbOctetsLus = 0;
 
+    MessageClient mess = m_gestionnaireOrdre.traiterOrdre(texte);
+
     // envoie de la réponse
-    envoiTexte("Reponse envoyee par le serveur.");
+    envoiTexte(mess.texte());
 }
 
 /** --------------------------------------------------------------------------------------
@@ -113,10 +115,9 @@ void ServeurOrdre::deconnexionClient()
  * \brief Méthode envoyant un texte donné au client.
  * \param s Une référence contantes sur le texte à envoyer.
  */
-void ServeurOrdre::envoiTexte( const std::string& s )
+void ServeurOrdre::envoiTexte( const QString& texte )
 {
-    std::cout << "3- Envoi de : " << s << std::endl;
-    QString texte = tr(s.c_str());
+    std::cout << "3- Envoi de : " << texte.toStdString() << std::endl;
     QByteArray block;
     QDataStream out(&block, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_4_0);
