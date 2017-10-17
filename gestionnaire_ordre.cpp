@@ -19,12 +19,14 @@ GestionnaireOrdre::GestionnaireOrdre()
 }
 
 /** --------------------------------------------------------------------------------------
- * \brief Constructeur de la classe AfficheurInterface.
- * \param s Le message client reçu.
+ * \brief Traite un ordre donné.
+ * \param mess L'ordre à traiter.
  * \return Le message à renvoyer au client.
  */
 MessageClient GestionnaireOrdre::traiterOrdre(const MessageClient &mess)
 {
+    MessageClient result;
+
     if ( mess.valide() )
     {
         std::cout << "traitement du message n°" << mess.numero() << std::endl;
@@ -33,16 +35,31 @@ MessageClient GestionnaireOrdre::traiterOrdre(const MessageClient &mess)
             std::cout << "\t- parametre = " << mess.parametre().toStdString() << std::endl;
 
         if ( mess.ordre().compare("AFFICHER") == 0 && mess.a_parametre() )
-        {
-            MessageAfficheur mess_afficheur( mess.parametre() );
-            AfficheurInterface::instance()->envoyerMessage( mess_afficheur );
-        }
-
-        return MessageClient(mess.numero(),"ordre bien reçu");
+            result = traiterOrdreAfficher(mess);
     }
     else
     {
         std::cout << "message invalide : pas de traitement de : " << mess.texte().toStdString() << std::endl;
-        return MessageClient(0,"message invalide : " + mess.texte());
+        result = MessageClient(0,"message invalide : " + mess.texte());
     }
+
+    return result;
+}
+
+/** --------------------------------------------------------------------------------------
+ * \brief Constructeur de la classe AfficheurInterface.
+ * \param s Le message client reçu.
+ * \return Le message à renvoyer au client.
+ */
+MessageClient GestionnaireOrdre::traiterOrdreAfficher(const MessageClient &mess)
+{
+    if ( AfficheurInterface::instance()->connexionEtablie() )
+    {
+        MessageAfficheur mess_afficheur( mess.parametre() );
+        AfficheurInterface::instance()->envoyerMessage( mess_afficheur );
+
+        return MessageClient(mess.numero(),"Le message a ete envoye à l'afficheur");
+    }
+    else
+        return MessageClient(mess.numero(),"Erreur : le serveur n'est pas connecte a l'afficheur");
 }

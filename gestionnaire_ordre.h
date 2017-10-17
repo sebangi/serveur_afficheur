@@ -16,10 +16,13 @@
  */
 class GestionnaireOrdre
 {
-public:
-    GestionnaireOrdre();
+    public:
+        GestionnaireOrdre();
 
-    MessageClient traiterOrdre( const MessageClient & s);
+        MessageClient traiterOrdre( const MessageClient & s);
+
+    private:
+        MessageClient traiterOrdreAfficher(const MessageClient &mess);
 };
 
 #endif // GESTIONNAIRE_ORDRE_H
