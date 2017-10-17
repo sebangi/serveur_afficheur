@@ -14,6 +14,8 @@
 #include <windows.h>
 
 #include "serveur_ordre.h"
+#include "afficheur_interface.h"
+#include <QThread>
 
 using namespace std;
 
@@ -27,8 +29,23 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
+    // création du singleton AfficheurInterface
+    AfficheurInterface* afficheur = AfficheurInterface::instance();
+
+    QThread::sleep(2);
+    if ( afficheur->connexionEtablie() )
+        std::cout << "Afficheur détecte." << std::endl;
+    else
+        std::cout << "Erreur : afficheur non detecte." << std::endl;
+
     // création du serveur
     ServeurOrdre serveur;
 
-    return a.exec();
+    // on attend un événement quit
+    int result = a.exec();
+
+    // suppression du singleton AfficheurInterface
+    delete afficheur;
+
+    return result;
 }

@@ -20,15 +20,17 @@ class AfficheurInterface
 {
     private:
         AfficheurInterface();
+
+    public:
         ~AfficheurInterface();
 
     public:
         static AfficheurInterface* instance();
         void envoyerMessage(const MessageAfficheur& m);
+        bool connexionEtablie() const;
 
     private:
         int calculerChecksum(const char* trame) const;
-        bool connexionEtablie() const;
 
     private:
         /** \brief Pointeur sur l'instance singleton AfficheurInterface. */

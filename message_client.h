@@ -11,7 +11,7 @@
 
 /**
  * \class MessageClient
- * \brief Classe décrivant un message d'un client ou un message à envoyer à un client.
+ * \brief Classe décrivant un message d'un client ou un message à envoyer à un client. Le message est de type : "NUM|ORDRE" ou "NUM|ORDRE|PARAMETRE".
  * \author Sébastien Angibaud
  */
 class MessageClient
@@ -19,12 +19,27 @@ class MessageClient
     public:
         MessageClient();
         MessageClient(const QString & texte);
+        MessageClient(int numero, QString ordre, QString parametre = "");
 
         QString texte() const;
+        int numero() const;
+        QString ordre() const;
+        QString parametre() const;
+        bool valide() const;
+        bool a_parametre() const;
 
     private:
-        /** \brief Le texte du message. */
-        QString m_texte;
+        /** \brief Le numero du message. */
+        int m_numero;
+
+        /** \brief L'ordre du message. */
+        QString m_ordre;
+
+        /** \brief Le paramètre du message. */
+        QString m_parametre;
+
+        /** \brief Indique si le message est valide. */
+        bool m_valide;
 };
 
 #endif // MESSAGE_CLIEN_H

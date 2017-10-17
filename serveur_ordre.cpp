@@ -25,11 +25,11 @@ ServeurOrdre::ServeurOrdre()
     // La méthode sessionOuverte sera appelée sur le signal opened
     connect(m_networkSession, SIGNAL(opened()), this, SLOT(sessionOuverte()));
 
-    // La méthode connexionClient sera appelée sur le signal newConnection
-    connect(m_tcpServer, SIGNAL(newConnection()), this, SLOT(connexionClient()));
-
     // Demande d'ouverture de la session
     m_networkSession->open();
+
+    // La méthode connexionClient sera appelée sur le signal newConnection
+    connect(m_tcpServer, SIGNAL(newConnection()), this, SLOT(connexionClient()));
 }
 
 /** --------------------------------------------------------------------------------------

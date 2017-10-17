@@ -5,6 +5,9 @@
 
 #include "gestionnaire_ordre.h"
 
+#include "afficheur_interface.h"
+#include "message_afficheur.h"
+
 #include <iostream>
 
 /** --------------------------------------------------------------------------------------
@@ -22,7 +25,24 @@ GestionnaireOrdre::GestionnaireOrdre()
  */
 MessageClient GestionnaireOrdre::traiterOrdre(const MessageClient &mess)
 {
-    std::cout << "traitement de " << mess.texte().toStdString() << std::endl;
+    if ( mess.valide() )
+    {
+        std::cout << "traitement du message n°" << mess.numero() << std::endl;
+        std::cout << "\t- ordre = " << mess.ordre().toStdString() << std::endl;
+        if ( mess.a_parametre() )
+            std::cout << "\t- parametre = " << mess.parametre().toStdString() << std::endl;
 
-    return MessageClient("ordre bien reçu");
+        if ( mess.ordre().compare("AFFICHER") == 0 && mess.a_parametre() )
+        {
+            MessageAfficheur mess_afficheur( mess.parametre() );
+            AfficheurInterface::instance()->envoyerMessage( mess_afficheur );
+        }
+
+        return MessageClient(mess.numero(),"ordre bien reçu");
+    }
+    else
+    {
+        std::cout << "message invalide : pas de traitement de : " << mess.texte().toStdString() << std::endl;
+        return MessageClient(0,"message invalide : " + mess.texte());
+    }
 }
