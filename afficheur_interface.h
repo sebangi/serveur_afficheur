@@ -9,7 +9,7 @@
 
 #include <QtSerialPort/QSerialPort>
 
-class MessageAfficheur;
+class MessageClient;
 
 /**
  * \class AfficheurInterface
@@ -26,7 +26,8 @@ class AfficheurInterface
 
     public:
         static AfficheurInterface* instance();
-        void envoyerMessage(const MessageAfficheur& m);
+        void envoyerMessage(const MessageClient& m);
+        bool setCouleur( const MessageClient &m );
         bool connexionEtablie() const;
 
     private:
@@ -38,6 +39,9 @@ class AfficheurInterface
 
         /** \brief Le port série. */
         QSerialPort m_portSerie;
+
+        /** \brief La couleur actuelle de l'affichage. */
+        char m_couleur;
 };
 
 #endif // AFFICHEURINTERFACE_H

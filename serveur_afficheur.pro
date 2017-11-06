@@ -15,7 +15,6 @@ SOURCES += main.cpp \
     serveur_ordre.cpp \
     afficheur_interface.cpp \
     gestionnaire_ordre.cpp \
-    message_afficheur.cpp \
     message_client.cpp
 
 # The following define makes your compiler emit warnings if you use
@@ -33,5 +32,4 @@ HEADERS += \
     serveur_ordre.h \
     afficheur_interface.h \
     gestionnaire_ordre.h \
-    message_afficheur.h \
     message_client.h

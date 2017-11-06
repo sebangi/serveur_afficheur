@@ -4,7 +4,7 @@
  */
 
 #include "afficheur_interface.h"
-#include "message_afficheur.h"
+#include "message_client.h"
 
 #include <iostream>
 #include <sstream>
@@ -20,6 +20,7 @@ AfficheurInterface* AfficheurInterface::m_instance = NULL;
  * \brief Constructeur de la classe AfficheurInterface.
  */
 AfficheurInterface::AfficheurInterface()
+    : m_couleur('B')
 {
     // Paramétrage du port série
     m_portSerie.setPortName("COM1");
@@ -66,13 +67,13 @@ bool AfficheurInterface::connexionEtablie() const
  * \brief Envoie un message à l'afficheur.
  * \param m Une référence constance sur le message à envoyer.
  */
-void AfficheurInterface::envoyerMessage( const MessageAfficheur & m)
+void AfficheurInterface::envoyerMessage( const MessageClient & m)
 {
     if ( connexionEtablie() )
     {
         std::string startOfTrame = "<ID01>";
         std::string startOfMessage = "<L1><PA><FE><MA><WC><FE>";
-        std::string mess = startOfMessage + m.texte().toStdString();
+        std::string mess = startOfMessage + m.parametre(0).toStdString() + "<C" + m_couleur + ">";
 
         int checkSum = calculerChecksum(mess.c_str());
         std::string endOfTrame = "<E>";
@@ -98,6 +99,27 @@ void AfficheurInterface::envoyerMessage( const MessageAfficheur & m)
     }
     else
         std::cout << "connexion non etablie" << std::endl;
+}
+
+/** --------------------------------------------------------------------------------------
+ * \brief Initialise la couleur à utiliser pour l'afficheur.
+ * \param m Une référence constance sur le message à envoyer.
+ * \return \b Vrai si le choix est effectué, \b Faux sinon.
+ */
+bool AfficheurInterface::setCouleur(const MessageClient &m)
+{
+    if ( m.a_parametre() )
+        if ( m.parametre().size() == 1 )
+        {
+            char couleur = m.parametre().at(0).toLatin1();
+            if ( couleur >= 'A' && couleur <= 'S' && couleur != 'O' )
+            {
+                m_couleur = couleur;
+                return true;
+            }
+        }
+
+    return false;
 }
 
 /** --------------------------------------------------------------------------------------

@@ -40,8 +40,8 @@ MessageClient::MessageClient(const QString & texte)
         ++it;
 
         // eventuellement le parametre
-        if ( it != liste.end() )
-            m_parametre = *it;
+        for ( ; it != liste.end(); ++it )
+            m_parametres.push_back( *it );
     }
 }
 
@@ -49,10 +49,21 @@ MessageClient::MessageClient(const QString & texte)
  * \brief Constructeur de la classe MessageClient.
  * \param numero Le numero du message.
  * \param ordre L'ordre du message.
- * \param parametre Le parametre du message.
  */
-MessageClient::MessageClient(int numero, QString ordre, QString parametre)
-    : m_numero(numero), m_ordre(ordre), m_parametre(parametre), m_valide(false)
+MessageClient::MessageClient(int numero, QString ordre)
+    : m_numero(0), m_ordre(ordre), m_valide(true)
+{
+
+}
+
+/** --------------------------------------------------------------------------------------
+ * \brief Constructeur de la classe MessageClient.
+ * \param numero Le numero du message.
+ * \param ordre L'ordre du message.
+ * \param parametres Les parametres du message.
+ */
+MessageClient::MessageClient(int numero, QString ordre, const std::vector<QString>& parametres)
+    : m_numero(numero), m_ordre(ordre), m_parametres(parametres), m_valide(false)
 {
 
 }
@@ -65,8 +76,9 @@ QString MessageClient::texte() const
 {
     QString result( QString::number(m_numero) + "|" + m_ordre );
 
-    if ( ! m_parametre.isEmpty() )
-        result = result + m_parametre;
+    for( std::vector<QString>::const_iterator it = m_parametres.begin();
+         it != m_parametres.end(); ++it )
+        result = result + *it;
 
     return result;
 }
@@ -91,11 +103,15 @@ QString MessageClient::ordre() const
 
 /** --------------------------------------------------------------------------------------
  * \brief Accesseur du parametre du message.
+ * \param pos Le parametre voulu.
  * \return Le parametre du message.
  */
-QString MessageClient::parametre() const
+QString MessageClient::parametre( int pos ) const
 {
-    return m_parametre;
+    if ( pos >= 0 && pos < m_parametres.size() )
+        return m_parametres[pos];
+    else
+        return "";
 }
 
 /** --------------------------------------------------------------------------------------
@@ -113,5 +129,14 @@ bool MessageClient::valide() const
  */
 bool MessageClient::a_parametre() const
 {
-    return ! m_parametre.isEmpty();
+    return ! m_parametres.empty();
+}
+
+/** --------------------------------------------------------------------------------------
+ * \brief Indique le nombre de parametres du message.
+ * \return Le nombre de paramètres du message.
+ */
+int MessageClient::nb_parametres() const
+{
+    return m_parametres.size();
 }

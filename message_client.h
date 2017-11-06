@@ -8,6 +8,7 @@
  */
 
 #include <QString>
+#include <vector>
 
 /**
  * \class MessageClient
@@ -19,14 +20,16 @@ class MessageClient
     public:
         MessageClient();
         MessageClient(const QString & texte);
-        MessageClient(int numero, QString ordre, QString parametre = "");
+        MessageClient(int numero, QString ordre);
+        MessageClient(int numero, QString ordre, const std::vector<QString>& parametre);
 
         QString texte() const;
         int numero() const;
         QString ordre() const;
-        QString parametre() const;
+        QString parametre( int pos = 0 ) const;
         bool valide() const;
         bool a_parametre() const;
+        int nb_parametres() const;
 
     private:
         /** \brief Le numero du message. */
@@ -35,8 +38,8 @@ class MessageClient
         /** \brief L'ordre du message. */
         QString m_ordre;
 
-        /** \brief Le paramètre du message. */
-        QString m_parametre;
+        /** \brief Les paramètres du message. */
+        std::vector<QString> m_parametres;
 
         /** \brief Indique si le message est valide. */
         bool m_valide;
