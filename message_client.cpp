@@ -140,3 +140,14 @@ int MessageClient::nb_parametres() const
 {
     return m_parametres.size();
 }
+
+/** --------------------------------------------------------------------------------------
+ * \brief Inintialise un paramètre du message.
+ * \param pos La position du paramètre à initialiser.
+ * \param value La nouvelle valeur du paramètre.
+ */
+void MessageClient::setParametre(int pos, const QString & value)
+{
+    if ( pos >= 0 && pos < m_parametres.size() )
+       m_parametres[pos] = value;
+}

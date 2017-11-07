@@ -30,6 +30,7 @@ class MessageClient
         bool valide() const;
         bool a_parametre() const;
         int nb_parametres() const;
+        void setParametre( int pos, const QString & value );
 
     private:
         /** \brief Le numero du message. */

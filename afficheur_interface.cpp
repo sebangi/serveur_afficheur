@@ -20,7 +20,7 @@ AfficheurInterface* AfficheurInterface::m_instance = NULL;
  * \brief Constructeur de la classe AfficheurInterface.
  */
 AfficheurInterface::AfficheurInterface()
-    : m_couleur('B')
+    : m_couleur('E')
 {
     // Paramétrage du port série
     m_portSerie.setPortName("COM1");
@@ -69,11 +69,14 @@ bool AfficheurInterface::connexionEtablie() const
  */
 void AfficheurInterface::envoyerMessage( const MessageClient & m)
 {
+   // MessageClient m1(m.numero(),"AFFICHER");
+    //m1.setParametre(0, "hé hé !!!");
+
     if ( connexionEtablie() )
     {
         std::string startOfTrame = "<ID01>";
         std::string startOfMessage = "<L1><PA><FE><MA><WC><FE>";
-        std::string mess = startOfMessage + m.parametre(0).toStdString() + "<C" + m_couleur + ">";
+        std::string mess = startOfMessage + "<C" + m_couleur + ">" + m.parametre(0).toStdString();
 
         int checkSum = calculerChecksum(mess.c_str());
         std::string endOfTrame = "<E>";
